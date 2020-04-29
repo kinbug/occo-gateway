@@ -1,0 +1,41 @@
+server:
+  port: 9999
+  
+spring:
+  application:
+    name: kb-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.110.252.190:8848
+      discovery:
+        server-addr: 47.110.252.190:8848
+    sentinel: 
+      enabled: true
+      transport: 
+        dashboard: localhost:8777
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 47.110.252.190:8848
+            groupId: DEFAULT_GROUP
+            dataId: gateway-sentinel
+            rule-type: flow
+      filter:
+        enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: user-service
+        uri: lb://kb-user-center
+        order: 0
+        predicates:
+        - Path=/normal
+        filters:
+          - StripPrefix=0
+    loadbalancer:
+      retry:
+        enabled: true
