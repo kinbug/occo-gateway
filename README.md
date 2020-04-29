@@ -42,8 +42,8 @@ Group：DEFAULT_GROUP  （默认的）
             Path路由匹配:请求路径匹配设定值的请求 ：       name=Path， _genkey_0=/foo/**  （PS：请求路径匹配路径以/foo开头)
             Query路由匹配：请求参数匹配设定值或表达式的请求：name=Query， _genkey_0=baz   （PS：请求参数中包含baz参数）
 ```
-4、发布gateway_router配置，每次重新启动gateway都要重新发布一下这个配置，才能被gateway获取到《路由》配置。
-5、在nacos中建《限流》配置如下：
+4、发布gateway_router配置，每次重新启动gateway都要重新发布一下这个配置，才能被gateway获取到《路由》配置。     
+5、在nacos中建《限流》配置如下：    
 Data ID: gateway-sentinel    
 Group：DEFAULT_GROUP  （默认的）     
 配置内容：[{"resource":"user-server","controlBehavior":0,"count":2,"grade":1,"limitApp":"default","strategy":0}]      （JSON格式）   
