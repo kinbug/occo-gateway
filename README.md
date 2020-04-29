@@ -19,10 +19,8 @@ spring cloud gateway 响应式网关，基于nacos实现动态网关，基于sen
 3.  启动网关
 
 - 下载occo-gateway启动项目
-- 
 - 启动gateway
-- 
-- 在nacos中建《路由》配置入下：
+- 在nacos中建《路由》配置：
 
 ```
 Data ID: gateway_router
@@ -46,9 +44,9 @@ Group：DEFAULT_GROUP  （默认的）
 ```
 4、发布gateway_router配置，每次重新启动gateway都要重新发布一下这个配置，才能被gateway获取到《路由》配置。
 5、在nacos中建《限流》配置如下：
-Data ID: gateway-sentinel
-Group：DEFAULT_GROUP  （默认的）
-配置内容：[{"resource":"user-server","controlBehavior":0,"count":2,"grade":1,"limitApp":"default","strategy":0}]      （JSON格式）
+Data ID: gateway-sentinel    
+Group：DEFAULT_GROUP  （默认的）     
+配置内容：[{"resource":"user-server","controlBehavior":0,"count":2,"grade":1,"limitApp":"default","strategy":0}]      （JSON格式）   
 配置说明：
 - resource：资源名，即限流规则的作用对象
 - limitApp：流控针对的调用来源，若为 default 则不区分调用来源
