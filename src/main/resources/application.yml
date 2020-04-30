@@ -1,6 +1,17 @@
 spring:
   main:
     allow-bean-definition-overriding: true
+    
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - shutdown
+        - health
 # 配置输出日志
 logging:
   level:
