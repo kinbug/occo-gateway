@@ -57,8 +57,6 @@ Group：DEFAULT_GROUP  （默认的）
 - clusterMode：是否为集群模式
 
 
-#### 内容展示
-
-1.  nacos
-2.  sentinel
+#### 整合说明
+[整合细节](http://https://my.oschina.net/bianxin/blog/4259532)
 
